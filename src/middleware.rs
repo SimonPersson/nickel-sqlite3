@@ -19,7 +19,12 @@ impl Sqlite3Middleware
     {
         Sqlite3Middleware
         {
-            conn: Arc::new(Mutex::new(access::open(file).unwrap()))
+            conn: Arc::new(Mutex::new(match access::open(file)
+                                        {
+                                          Ok(f) => f,
+                                          Err(e) => fail!("Couldn't open db: {}", e),
+                                        }
+                                     ))
         }
     }
 }
@@ -42,6 +47,10 @@ impl<'a> Sqlite3RequestExtensions for Request<'a>
 {
     fn db_conn(&self) -> &Arc<Mutex<DatabaseConnection>>
     {
-        return self.map.find::<Arc<Mutex<DatabaseConnection>>>().unwrap()
+        return match self.map.find::<Arc<Mutex<DatabaseConnection>>>()
+        {
+            Some(db) => db,
+            None => fail!("Couldn't find DB connection."),
+        }
     }
 }
