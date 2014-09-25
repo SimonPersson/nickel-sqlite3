@@ -8,7 +8,11 @@ name = "nickel_sqlite"
 path = "src/lib.rs"
 
 [dependencies.nickel]
-git = "https://github.com/nickel-org/nickel.rs.git"
+git = "https://github.com/SimonPersson/nickel.rs.git"
 
 [dependencies.rust-sqlite]
 git = "https://github.com/dckc/rust-sqlite3.git"
+
+[[example]]
+name = "example"
+path = "example/example.rs"
