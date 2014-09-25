@@ -3,7 +3,7 @@ name = "nickel-sqlite"
 version = "0.0.1"
 authors = ["Simon Persson <simon@flaskpost.org>"]
 
-[[lib]]
+[lib]
 name = "nickel_sqlite"
 path = "src/lib.rs"
 
