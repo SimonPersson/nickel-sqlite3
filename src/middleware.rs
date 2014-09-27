@@ -43,7 +43,7 @@ pub trait Sqlite3RequestExtensions
     fn db_conn(&self) -> &Arc<Mutex<DatabaseConnection>>;
 }
 
-impl<'a> Sqlite3RequestExtensions for Request<'a>
+impl<'a, 'b> Sqlite3RequestExtensions for Request<'a, 'b>
 {
     fn db_conn(&self) -> &Arc<Mutex<DatabaseConnection>>
     {
