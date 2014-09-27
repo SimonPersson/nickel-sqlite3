@@ -2,9 +2,9 @@ extern crate sync;
 extern crate nickel;
 extern crate sqlite3;
 
-use nickel::{Request, Middleware, Response, Action, NickelError, Continue};
-use sqlite3::core::DatabaseConnection;
-use sqlite3::access;
+use self::nickel::{Request, Middleware, Response, Action, NickelError, Continue};
+use self::sqlite3::core::DatabaseConnection;
+use self::sqlite3::access;
 use self::sync::{Mutex, Arc};
 
 #[deriving(Clone)]
